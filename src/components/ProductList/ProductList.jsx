@@ -4,6 +4,9 @@ import Pagination from '../Pagination/Pagination';
 const ProductList = () => {
 
   const [products,setProducts]= useState([]);
+  //tottal de productos //cantidad de productos que me develve la API//nuemero entero
+  const totalProducts = products.length;
+
   const [productsPerPage,setProductsPerPage]= useState(6);
   const [currentPage,setCurrentPage]= useState(1);
 
@@ -34,7 +37,12 @@ const ProductList = () => {
         </div>
       ))}
     </div>
-    <Pagination/>
+    <Pagination  
+    productsPerPage={productsPerPage} 
+    currentPage={currentPage} 
+    setCurrentPage={setCurrentPage}
+    totalProducts={totalProducts}
+    />
     </>
     
   )
