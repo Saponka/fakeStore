@@ -21,20 +21,23 @@ const Pagination = ({productsPerPage,totalProducts,currentPage,setCurrentPage}) 
   //Anterior
   const onPreviusPage = ()=>{
     //actualizar mi state de pagina actual
-    //mi state de pagina actual es el resultado de pagina actual menos 1
+    //si mi pagina actual es igual a 1 
     if (currentPage === 1 ) {
+        //button deactivado
         <button disabled></button>
     }else{
-
+        // si no mi state de pagina actual es el resultado de pagina actual menos 1
         setCurrentPage(currentPage -1)
     } 
-   
   }
   //Siguiente
   const onNextPage = ()=>{
     //actualizar mi state de pagina actual
-    
-    setCurrentPage(currentPage +1)
+      if (currentPage >= pageNumber.length) {
+        <button disabled></button>
+      } else { 
+          setCurrentPage(currentPage +1)
+      }
     }
     //seleccion de pagina
     //le pasamos un parametro n de number
