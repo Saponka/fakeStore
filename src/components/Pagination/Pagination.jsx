@@ -15,20 +15,48 @@ const Pagination = ({productsPerPage,totalProducts,currentPage,setCurrentPage}) 
    //4 paginas de 6 productos 
    pageNumber.push(i)
    //4 paginas de 6 productos en cada pagina
-    console.log(pageNumber);
-    
+    console.log(pageNumber); 
   }
+  //buttons functions
+  //Anterior
+  const onPreviusPage = ()=>{
+    //actualizar mi state de pagina actual
+    //mi state de pagina actual es el resultado de pagina actual menos 1
+    if (currentPage === 1 ) {
+        <button disabled></button>
+    }else{
+
+        setCurrentPage(currentPage -1)
+    } 
+   
+  }
+  //Siguiente
+  const onNextPage = ()=>{
+    //actualizar mi state de pagina actual
+    
+    setCurrentPage(currentPage +1)
+    }
+    //seleccion de pagina
+    //le pasamos un parametro n de number
+    //cuando la funciones toman un parametro
+    // se necesita retorna con un callback
+    //le pasamos como parametro en el onCLick ()=> onSpecificPage(numPage) 
+    const onSpecificPage = (n)=>{
+        setCurrentPage(n)
+    }
 
   return (
     <nav className="pagination is-centered mb-6" role="navigation" aria-label="pagination">
-  <a className="pagination-previous">Anterior</a>
-  <a className="pagination-next">Siguiente</a>
+{/* uso de ternarios en las clases */}
+  <button className={`pagination-previous ${currentPage === 1 ? 'is-disabled':''}`} onClick={onPreviusPage}>Anterior</button>
+  <button className={`pagination-next ${ currentPage >= pageNumber.length ? 'is-disabled':''}`} onClick={onNextPage}>Siguiente</button>
   <ul className="pagination-list">
-    { pageNumber.map(noPage=>(
-        <li key={noPage}>
-            {/*en la calse pagination-link,usamos ternarios, si noPage es igual a la currentPage, ? entoces mostrame la clase is-current : si no nada '' */}
-        <a className={`pagination-link ${noPage === currentPage ? 'is-current': ''}`} >
-         {noPage}
+    {/* de manera dinamica tomamos el numero de pagina de la operacion del for */}
+    { pageNumber.map(numPage=>(
+        <li key={numPage}>
+            {/*en la clase pagination-link,usamos ternarios, si numPage es igual a la currentPage, ? entoces mostrame la clase is-current : si no nada '' */}
+        <a className={`pagination-link ${numPage === currentPage ? 'is-current': ''}`} onClick={()=> onSpecificPage(numPage)} >
+         {numPage}
         </a>
     </li>
     ))
