@@ -1,5 +1,5 @@
 import React from "react";
-//import Nike from "../../assets/images/Nike.jpg";
+import shop from "../../assets/images/ecommerce.svg";
 //import { Link } from "react-router-dom";
 //import { useSelector } from "react-redux";
 import "./header.css"
@@ -14,7 +14,7 @@ const Header = () => {
     <header>
       <a href="/">
         <div className="logo">
-          <img src="" alt="logo" width="150" />
+          <img src={shop} alt="logo" width="80" />
         </div>
       </a>
       <ul>
@@ -22,14 +22,16 @@ const Header = () => {
           <a href="/">Inicio</a>
         </li>
         <li>
-          <a href="/productos">Productos</a>
+          <a href="/">Productos</a>
         </li>
       </ul>
         {/* <Link to="/carrito"> */}
+        <a href="/cart">
        <div className="cart">
         <box-icon name="cart"></box-icon>
         <span className="item_total">0 {/* {quantity} */}</span>
       </div>
+      </a>
       {/* </Link> */}
     </header>
   );
