@@ -49,7 +49,7 @@ const Pagination = ({productsPerPage,totalProducts,currentPage,setCurrentPage}) 
     }
 
   return (
-    <nav className="pagination is-centered mb-6" role="navigation" aria-label="pagination">
+    <nav className="pagination is-rounded is-medium  is-centered mb-6" role="navigation" aria-label="pagination">
 {/* uso de ternarios en las clases */}
   <button className={`pagination-previous ${currentPage === 1 ? 'is-disabled':''}`} onClick={onPreviusPage}>Anterior</button>
   <button className={`pagination-next ${ currentPage >= pageNumber.length ? 'is-disabled':''}`} onClick={onNextPage}>Siguiente</button>
@@ -58,7 +58,7 @@ const Pagination = ({productsPerPage,totalProducts,currentPage,setCurrentPage}) 
     { pageNumber.map(numPage=>(
         <li key={numPage}>
             {/*en la clase pagination-link,usamos ternarios, si numPage es igual a la currentPage, ? entoces mostrame la clase is-current : si no nada '' */}
-        <a className={`pagination-link ${numPage === currentPage ? 'is-current': ''}`} onClick={()=> onSpecificPage(numPage)} >
+        <a className={`pagination-link   ${numPage === currentPage ? 'is-current': ''}`} onClick={()=> onSpecificPage(numPage)} >
          {numPage}
         </a>
     </li>
