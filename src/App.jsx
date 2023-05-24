@@ -1,17 +1,16 @@
-import { useState } from 'react'
-
+import 'boxicons';
 import './index.css'
 import Pagination from './components/Pagination/Pagination'
 import ProductList from './components/ProductList/ProductList'
+import Header from './components/Header/Header'
 
 function App() {
-  //const [count, setCount] = useState(0)
+  
 
   return (
     <>
       <div className='App'>
-        <h1 className='title'>Fake Store</h1>
-       
+       <Header/>
         <ProductList/>
       </div>
       
