@@ -7,8 +7,13 @@ const ProductList = () => {
   //tottal de productos //cantidad de productos que me develve la API//nuemero entero
   const totalProducts = products.length;
 
-  const [productsPerPage,setProductsPerPage]= useState(6);
+  const [productsPerPage,setProductsPerPage]= useState(3);
   const [currentPage,setCurrentPage]= useState(1);
+  //currentPage inicia en 1 * productPerPage en 6
+  //lastIndex es 6
+  const lastIndex = currentPage * productsPerPage;//=6
+  //
+  const firstIndex = lastIndex - productsPerPage;//6-6=0 
 
    const productList = async ()=>{
     const data = await fetch('https://fakestoreapi.com/products');
@@ -23,6 +28,7 @@ const ProductList = () => {
 
   return (
     <>
+    <h1 className='title'>Fake Store</h1>
     <div className='container-products'>
       {products.map(product => (
         <div className="card-product" key={product.id}>
@@ -35,7 +41,8 @@ const ProductList = () => {
                 <button>Añadir al carrito</button>
             </div>
         </div>
-      ))}
+      )).slice(firstIndex,lastIndex)
+      }
     </div>
     <Pagination  
     productsPerPage={productsPerPage} 
