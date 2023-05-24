@@ -7,7 +7,7 @@ const ProductList = () => {
   //tottal de productos //cantidad de productos que me develve la API//nuemero entero
   const totalProducts = products.length;
 
-  const [productsPerPage,setProductsPerPage]= useState(3);
+  const [productsPerPage,setProductsPerPage]= useState(6);
   const [currentPage,setCurrentPage]= useState(1);
   //currentPage inicia en 1 * productPerPage en 6
   //lastIndex es 6
