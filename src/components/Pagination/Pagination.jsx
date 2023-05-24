@@ -34,7 +34,7 @@ const Pagination = ({productsPerPage,totalProducts,currentPage,setCurrentPage}) 
   const onNextPage = ()=>{
     //actualizar mi state de pagina actual
       if (currentPage >= pageNumber.length) {
-        <button disabled></button>
+        <button disabled ></button>
       } else { 
           setCurrentPage(currentPage +1)
       }
